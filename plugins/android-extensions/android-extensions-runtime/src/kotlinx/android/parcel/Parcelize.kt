@@ -16,6 +16,9 @@
 
 package kotlinx.android.parcel
 
+import kotlin.annotation.AnnotationRetention.BINARY
+import kotlin.annotation.AnnotationTarget.CLASS
+
 /**
  * Instructs the Kotlin compiler to generate `writeToParcel()`, `describeContents()` [android.os.Parcelable] methods,
  * as well as a `CREATOR` factory class automatically.
@@ -23,6 +26,6 @@ package kotlinx.android.parcel
  * The annotation is applicable only to classes that implements [android.os.Parcelable] (directly or indirectly).
  * Note that only the primary constructor properties will be serialized.
  */
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.BINARY)
+@Target(CLASS)
+@Retention(BINARY)
 annotation class Parcelize

@@ -16,10 +16,12 @@
 
 package kotlinx.kapt
 
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.*
+
 /**
  * Declaration annotated with [KaptIgnored] would not be included in stubs passed to annotation processors.
  */
-@Target(AnnotationTarget.FUNCTION, AnnotationTarget.FIELD,
-        AnnotationTarget.PROPERTY, AnnotationTarget.PROPERTY_GETTER, AnnotationTarget.PROPERTY_SETTER)
-@Retention(AnnotationRetention.SOURCE)
+@Target(FUNCTION, FIELD, PROPERTY, PROPERTY_GETTER, PROPERTY_SETTER)
+@Retention(SOURCE)
 public annotation class KaptIgnored

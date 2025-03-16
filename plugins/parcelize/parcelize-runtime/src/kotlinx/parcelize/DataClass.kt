@@ -5,6 +5,9 @@
 
 package kotlinx.parcelize
 
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.TYPE
+
 /**
  * When a type is annotated with this annotation, any data classes contained inside it
  * (as well as the type itself, if it is one) will be serialized even if they are not
@@ -34,7 +37,7 @@ package kotlinx.parcelize
  *
  * As a practical example, [kotlin.Pair] is a data class.
  */
-@Target(AnnotationTarget.TYPE)
-@Retention(AnnotationRetention.SOURCE)
+@Target(TYPE)
+@Retention(SOURCE)
 @Experimental
 annotation class DataClass

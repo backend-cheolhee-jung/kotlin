@@ -6,13 +6,15 @@
 package org.jetbrains.kotlin.fir
 
 import org.jetbrains.kotlin.config.LanguageFeature
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.CLASS
 
 /**
  * [NoMutableState] annotation means that annotated class has no mutable state
  *   and it's safe to use it concurrent environment (e.g. as session component)
  */
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.SOURCE)
+@Target(CLASS)
+@Retention(SOURCE)
 annotation class NoMutableState
 
 /**
@@ -20,8 +22,8 @@ annotation class NoMutableState
  *   and it should carefully implement it for concurrent environment if it will be used
  *   as session component
  */
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.SOURCE)
+@Target(CLASS)
+@Retention(SOURCE)
 annotation class ThreadSafeMutableState
 
 /**

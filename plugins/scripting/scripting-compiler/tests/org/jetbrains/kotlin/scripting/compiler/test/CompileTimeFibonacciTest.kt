@@ -24,6 +24,8 @@ import org.jetbrains.kotlin.test.TestJdkKind
 import org.jetbrains.kotlin.test.testFramework.RunAll
 import java.io.File
 import java.nio.file.Files
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.FILE
 import kotlin.script.experimental.annotations.KotlinScript
 import kotlin.script.experimental.api.*
 import kotlin.script.experimental.host.ScriptingHostConfiguration
@@ -191,9 +193,9 @@ object CompileTimeFibonacciConfiguration : ScriptCompilationConfiguration(
     }
 )
 
-@Target(AnnotationTarget.FILE)
+@Target(FILE)
 @Repeatable
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 annotation class Fib(val number: Int)
 
 private fun <T> List<T>.secondToLast(): T = this[count() - 2]

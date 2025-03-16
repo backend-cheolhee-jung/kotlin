@@ -16,10 +16,14 @@
 
 package kotlinx.android.parcel
 
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.CLASS
+import kotlin.annotation.AnnotationTarget.PROPERTY
+
 /**
  * Specifies what [Parceler] should be used for a particular type [T].
  */
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 @Repeatable
-@Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY)
+@Target(CLASS, PROPERTY)
 annotation class TypeParceler<T, P: Parceler<in T>>

@@ -24,6 +24,8 @@ import org.jetbrains.kotlin.test.KotlinTestUtils
 import org.jetbrains.kotlin.test.TestJdkKind
 import org.jetbrains.kotlin.test.testFramework.RunAll
 import java.io.File
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.FILE
 import kotlin.reflect.KClass
 import kotlin.script.experimental.api.*
 import kotlin.script.experimental.host.toScriptSource
@@ -33,14 +35,14 @@ import kotlin.test.*
 
 private const val testDataPath = "plugins/scripting/scripting-compiler/testData/compiler/constructAnnotations"
 
-@Target(AnnotationTarget.FILE)
+@Target(FILE)
 @Repeatable
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 private annotation class TestAnnotation(vararg val options: String)
 
-@Target(AnnotationTarget.FILE)
+@Target(FILE)
 @Repeatable
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 private annotation class AnnotationWithVarArgAndArray(vararg val options: String, val moreOptions: Array<String>)
 
 class ConstructAnnotationTest {

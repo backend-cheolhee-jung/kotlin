@@ -16,10 +16,13 @@
 
 package kotlinx.parcelize
 
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.*
+
 /**
  * Specifies what [Parceler] should be used for a particular type [T].
  */
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 @Repeatable
-@Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY)
+@Target(CLASS, PROPERTY)
 annotation class TypeParceler<T, P : Parceler<in T>>

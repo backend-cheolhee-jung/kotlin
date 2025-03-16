@@ -16,9 +16,12 @@
 
 package kotlinx.parcelize
 
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.PROPERTY
+
 /**
  * The property annotated with [IgnoredOnParcel] will not be stored into parcel.
  */
-@Target(AnnotationTarget.PROPERTY)
-@Retention(AnnotationRetention.SOURCE)
+@Target(PROPERTY)
+@Retention(SOURCE)
 annotation class IgnoredOnParcel

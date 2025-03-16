@@ -5,6 +5,9 @@
 
 package org.jetbrains.kotlin.plugin.sandbox
 
+import kotlin.annotation.AnnotationRetention.RUNTIME
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.*
 import kotlin.reflect.KClass
 
 annotation class AllOpen
@@ -12,7 +15,7 @@ annotation class AllOpen2
 
 annotation class DummyFunction
 
-@Target(AnnotationTarget.FUNCTION)
+@Target(FUNCTION)
 annotation class TestTopLevelPrivateSuspendFun
 annotation class ExternalClassWithNested
 annotation class NestedClassAndMaterializeMember
@@ -24,10 +27,10 @@ annotation class CoreSerializer
 
 annotation class AllPublic(val visibility: Visibility)
 
-@Target(AnnotationTarget.TYPE)
+@Target(TYPE)
 annotation class Positive
 
-@Target(AnnotationTarget.TYPE)
+@Target(TYPE)
 annotation class Negative
 
 enum class Visibility {
@@ -38,23 +41,23 @@ annotation class SupertypeWithTypeArgument(val kClass: KClass<*>)
 
 annotation class MetaSupertype
 
-@Target(AnnotationTarget.FUNCTION, AnnotationTarget.TYPE, AnnotationTarget.PROPERTY_GETTER)
+@Target(FUNCTION, TYPE, PROPERTY_GETTER)
 annotation class MyInlineable
 
-@Target(AnnotationTarget.FUNCTION, AnnotationTarget.TYPE, AnnotationTarget.PROPERTY_GETTER)
+@Target(FUNCTION, TYPE, PROPERTY_GETTER)
 annotation class MyNotInlineable
 
 annotation class AllPropertiesConstructor
 
 annotation class AddAnnotations
 
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(RUNTIME)
 annotation class SimpleAnnotation(val x: Int)
 
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(RUNTIME)
 annotation class ArrayAnnotation(val annotations: Array<SimpleAnnotation>)
 
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(RUNTIME)
 annotation class AnnotationToAdd(
     val booleanValue: Boolean,
     val byteValue: Byte,
@@ -74,8 +77,8 @@ annotation class AddNestedGeneratedClass
 
 annotation class GeneratedEntityType
 
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 annotation class EmitMetadata(val value: Int)
 
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 annotation class GenerateBodyUsingEmittedMetadata

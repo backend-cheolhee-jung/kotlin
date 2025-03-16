@@ -6,6 +6,9 @@
 package org.jetbrains.kotlin.types
 
 import org.jetbrains.kotlin.types.model.KotlinTypeMarker
+import kotlin.annotation.AnnotationRetention.BINARY
+import kotlin.annotation.AnnotationTarget.CLASS
+import kotlin.annotation.AnnotationTarget.FUNCTION
 
 /**
  * This annotation marks part of internal compiler API related to type refinement.
@@ -20,8 +23,8 @@ import org.jetbrains.kotlin.types.model.KotlinTypeMarker
  * API for broader use)
  */
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR)
-@Retention(AnnotationRetention.BINARY)
-@Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY)
+@Retention(BINARY)
+@Target(CLASS, FUNCTION, AnnotationTarget.PROPERTY)
 annotation class TypeRefinement
 
 

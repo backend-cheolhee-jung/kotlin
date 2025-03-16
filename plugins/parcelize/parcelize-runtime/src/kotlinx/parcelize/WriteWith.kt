@@ -16,9 +16,12 @@
 
 package kotlinx.parcelize
 
+import kotlin.annotation.AnnotationRetention.SOURCE
+import kotlin.annotation.AnnotationTarget.TYPE
+
 /**
  * Specifies what [Parceler] should be used for the annotated type.
  */
-@Retention(AnnotationRetention.SOURCE)
-@Target(AnnotationTarget.TYPE)
+@Retention(SOURCE)
+@Target(TYPE)
 annotation class WriteWith<P : Parceler<*>>

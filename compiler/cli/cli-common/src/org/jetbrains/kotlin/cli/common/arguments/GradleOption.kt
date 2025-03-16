@@ -16,11 +16,13 @@
 
 package org.jetbrains.kotlin.cli.common.arguments
 
+import kotlin.annotation.AnnotationRetention.RUNTIME
+
 /**
  * @param value should be one of [DefaultValue] enum values
  * @param gradleInputType should be one of [GradleInputTypes] enum values
  */
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(RUNTIME)
 annotation class GradleOption(
     val value: DefaultValue,
     val gradleInputType: GradleInputTypes,

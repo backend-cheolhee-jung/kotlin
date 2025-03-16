@@ -21,6 +21,7 @@ import org.jetbrains.kotlin.metadata.deserialization.TypeTable
 import org.jetbrains.kotlin.metadata.deserialization.MetadataVersion
 import org.jetbrains.kotlin.metadata.jvm.deserialization.JvmProtoBufUtil
 import org.jetbrains.kotlin.serialization.deserialization.MemberDeserializer
+import kotlin.annotation.AnnotationRetention.BINARY
 import kotlin.annotation.AnnotationTarget.*
 import kotlin.reflect.KFunction
 import kotlin.reflect.jvm.internal.EmptyContainerForLocal
@@ -59,7 +60,7 @@ fun <R> Function<R>.reflect(): KFunction<R>? {
  * or by using the compiler argument `-opt-in=kotlin.reflect.jvm.ExperimentalReflectionOnLambdas`.
  */
 @RequiresOptIn(level = RequiresOptIn.Level.WARNING)
-@Retention(AnnotationRetention.BINARY)
+@Retention(BINARY)
 @Target(
     CLASS,
     ANNOTATION_CLASS,

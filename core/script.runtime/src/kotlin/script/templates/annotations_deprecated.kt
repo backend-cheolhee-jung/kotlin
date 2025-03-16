@@ -5,6 +5,7 @@
 
 package kotlin.script.templates
 
+import kotlin.annotation.AnnotationRetention.RUNTIME
 import kotlin.reflect.KClass
 import kotlin.script.dependencies.Environment
 
@@ -16,7 +17,7 @@ open class ScriptTemplateAdditionalCompilerArgumentsProvider(val arguments: Iter
 
 // Should be deprecated as well, but since we don't have replacement as of yet, leaving it as is
 @Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
+@Retention(RUNTIME)
 annotation class ScriptTemplateAdditionalCompilerArguments(
     val arguments: Array<String> = [],
     @Suppress("DEPRECATION") val provider: KClass<out ScriptTemplateAdditionalCompilerArgumentsProvider> = ScriptTemplateAdditionalCompilerArgumentsProvider::class

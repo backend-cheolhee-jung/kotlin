@@ -7,6 +7,7 @@ package org.jetbrains.kotlin.scripting.ide_services.test_util
 
 import kotlinx.coroutines.runBlocking
 import java.io.File
+import kotlin.annotation.AnnotationRetention.SOURCE
 import kotlin.script.dependencies.ScriptContents
 import kotlin.script.experimental.api.*
 import kotlin.script.experimental.dependencies.*
@@ -17,7 +18,7 @@ import kotlin.script.experimental.jvm.withUpdatedClasspath
 // in case of maven resolver the maven coordinates string is accepted (resolved with com.jcabi.aether library)
 @Target(AnnotationTarget.FILE)
 @Repeatable
-@Retention(AnnotationRetention.SOURCE)
+@Retention(SOURCE)
 annotation class DependsOn(val value: String = "")
 
 open class ScriptDependenciesResolver {

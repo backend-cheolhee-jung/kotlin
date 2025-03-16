@@ -28,6 +28,7 @@ import org.jetbrains.kotlin.resolve.scopes.ResolutionScope
 import org.jetbrains.kotlin.resolve.scopes.receivers.ReceiverValueWithSmartCastInfo
 import org.jetbrains.kotlin.types.KotlinType
 import org.jetbrains.kotlin.types.expressions.ExpressionTypingContext
+import kotlin.annotation.AnnotationRetention.BINARY
 
 /**
  * This is marker for non-stable experimental extension points.
@@ -35,7 +36,7 @@ import org.jetbrains.kotlin.types.expressions.ExpressionTypingContext
  * Please do not use them in general code.
  */
 @RequiresOptIn(level = RequiresOptIn.Level.ERROR)
-@Retention(AnnotationRetention.BINARY)
+@Retention(BINARY)
 annotation class InternalNonStableExtensionPoints
 
 @InternalNonStableExtensionPoints

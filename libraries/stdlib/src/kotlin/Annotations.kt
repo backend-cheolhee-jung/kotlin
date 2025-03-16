@@ -146,7 +146,7 @@ public annotation class UnsafeVariance
  * are non-negative integer numbers without leading zeros.
  */
 @Target(CLASS, PROPERTY, FIELD, CONSTRUCTOR, FUNCTION, PROPERTY_GETTER, PROPERTY_SETTER, TYPEALIAS)
-@Retention(AnnotationRetention.BINARY)
+@Retention(BINARY)
 @MustBeDocumented
 public annotation class SinceKotlin(val version: String)
 
@@ -183,8 +183,8 @@ public annotation class DslMarker
  * - this allows calling that declaration from public inline functions;
  * - the declaration becomes effectively public, and this should be considered with respect to binary compatibility maintaining.
  */
-@Target(AnnotationTarget.CLASS, AnnotationTarget.CONSTRUCTOR, AnnotationTarget.FUNCTION, AnnotationTarget.PROPERTY)
-@Retention(AnnotationRetention.BINARY)
+@Target(CLASS, CONSTRUCTOR, FUNCTION, PROPERTY)
+@Retention(BINARY)
 @MustBeDocumented
 @SinceKotlin("1.1")
 public annotation class PublishedApi

@@ -18,17 +18,20 @@
 
 package kotlin.script.templates
 
+import kotlin.annotation.AnnotationRetention.RUNTIME
+import kotlin.annotation.AnnotationTarget.CLASS
+import kotlin.annotation.AnnotationTarget.FUNCTION
 import kotlin.reflect.KClass
 import kotlin.script.dependencies.ScriptDependenciesResolver
 import kotlin.script.experimental.dependencies.DependenciesResolver.NoDependencies
 
 const val DEFAULT_SCRIPT_FILE_PATTERN = ".*\\.kts"
 
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
+@Target(CLASS)
+@Retention(RUNTIME)
 annotation class ScriptTemplateDefinition(val resolver: KClass<out ScriptDependenciesResolver> = NoDependencies::class,
     val scriptFilePattern: String = DEFAULT_SCRIPT_FILE_PATTERN)
 
-@Target(AnnotationTarget.FUNCTION, AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
+@Target(FUNCTION, CLASS)
+@Retention(RUNTIME)
 annotation class AcceptedAnnotations(vararg val supportedAnnotationClasses: KClass<out Annotation>)

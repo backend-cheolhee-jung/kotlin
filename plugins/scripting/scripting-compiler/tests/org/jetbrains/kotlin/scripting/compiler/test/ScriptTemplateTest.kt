@@ -39,6 +39,8 @@ import java.lang.reflect.InvocationTargetException
 import java.net.URL
 import java.net.URLClassLoader
 import java.util.concurrent.Future
+import kotlin.annotation.AnnotationRetention.RUNTIME
+import kotlin.annotation.AnnotationTarget.FILE
 import kotlin.reflect.KClass
 import kotlin.script.dependencies.*
 import kotlin.script.experimental.dependencies.*
@@ -535,13 +537,13 @@ class TestAsyncResolver : TestKotlinScriptDependenciesResolver(), AsyncDependenc
         super<AsyncDependenciesResolver>.resolve(scriptContents, environment)
 }
 
-@Target(AnnotationTarget.FILE)
+@Target(FILE)
 annotation class TestAnno1
 
-@Target(AnnotationTarget.FILE)
+@Target(FILE)
 annotation class TestAnno2
 
-@Target(AnnotationTarget.FILE)
+@Target(FILE)
 annotation class TestAnno3
 
 private val annotationFqNames = listOf(TestAnno1::class, TestAnno2::class, TestAnno3::class).map { it.qualifiedName!! }
@@ -688,12 +690,12 @@ abstract class ScriptWithDefaultArgsResolver(val num: Int)
 @ScriptTemplateDefinition(resolver = ThrowingResolver::class)
 abstract class ScriptWithThrowingResolver(val num: Int)
 
-@Target(AnnotationTarget.FILE)
-@Retention(AnnotationRetention.RUNTIME)
+@Target(FILE)
+@Retention(RUNTIME)
 annotation class DependsOn(val path: String)
 
-@Target(AnnotationTarget.FILE)
-@Retention(AnnotationRetention.RUNTIME)
+@Target(FILE)
+@Retention(RUNTIME)
 annotation class DependsOnTwo(val unused: String = "", val path1: String = "", val path2: String = "")
 
 private class NullOutputStream : OutputStream() {

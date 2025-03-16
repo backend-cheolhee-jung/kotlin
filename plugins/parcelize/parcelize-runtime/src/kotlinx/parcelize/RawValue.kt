@@ -16,10 +16,13 @@
 
 package kotlinx.parcelize
 
+import kotlin.annotation.AnnotationRetention.BINARY
+import kotlin.annotation.AnnotationTarget.TYPE
+
 /**
  * Write the corresponding property value with [android.os.Parcel.writeValue].
  * Serialization may fail at runtime, depending on actual property value type.
  */
-@Target(AnnotationTarget.TYPE)
-@Retention(AnnotationRetention.BINARY)
+@Target(TYPE)
+@Retention(BINARY)
 annotation class RawValue

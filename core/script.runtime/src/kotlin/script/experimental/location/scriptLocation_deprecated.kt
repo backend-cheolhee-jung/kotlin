@@ -5,6 +5,9 @@
 
 package kotlin.script.experimental.location
 
+import kotlin.annotation.AnnotationRetention.RUNTIME
+import kotlin.annotation.AnnotationTarget.CLASS
+
 /**
  * Describes where script files can be found
  */
@@ -18,8 +21,8 @@ enum class ScriptExpectedLocation {
 }
 
 @Deprecated("Experimental API")
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.RUNTIME)
+@Target(CLASS)
+@Retention(RUNTIME)
 annotation class ScriptExpectedLocations(
     @Suppress("DEPRECATION") val value: Array<ScriptExpectedLocation> = [ScriptExpectedLocation.SourcesOnly, ScriptExpectedLocation.TestsOnly]
 )

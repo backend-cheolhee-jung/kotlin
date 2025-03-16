@@ -5,7 +5,10 @@
 
 package kotlinx.js
 
+import kotlin.annotation.AnnotationRetention.BINARY
+import kotlin.annotation.AnnotationTarget.CLASS
 
-@Target(AnnotationTarget.CLASS)
-@Retention(AnnotationRetention.BINARY)
+
+@Target(CLASS)
+@Retention(BINARY)
 public annotation class JsPlainObject
